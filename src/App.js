@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 
 // 主應用程式組件
 const App = () => {
@@ -8,7 +8,7 @@ const App = () => {
     const [topic, setTopic] = useState('科技'); // 新聞話題的狀態，預設為「科技」
 
     // 模擬從 Gemini API 獲取新聞的函數
-    const fetchNews = async () => {
+   const fetchNews = useCallback(async () => {
         if (!topic.trim()) {
             setError("請輸入一個話題。");
             return;
@@ -70,7 +70,7 @@ const App = () => {
         } finally {
             setLoading(false); // 設定載入狀態為 false
         }
-    };
+    }, [topic]);
 
     // 複製新聞內容到剪貼簿
     const copyNewsToClipboard = () => {
