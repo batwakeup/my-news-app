@@ -102,7 +102,7 @@ const App = () => {
     // 應用程式啟動時自動獲取新聞
     useEffect(() => {
         fetchNews();
-    }, []);
+    }, [fetchNews]);
 
     return (
         <div className="min-h-screen bg-gray-100 flex flex-col items-center p-4 font-inter">
