@@ -41,8 +41,7 @@ const App = () => {
                 }
             };
 
-            const apiKey = ""; // API 金鑰，留空則由 Canvas 自動提供
-            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+            const apiKey = process.env.REACT_APP_GEMINI_API_KEY; // 從環境變數中讀取 API 金鑰
 
             // 發送請求到 Gemini API
             const response = await fetch(apiUrl, {
