@@ -44,6 +44,7 @@ const App = () => {
             const apiKey = process.env.REACT_APP_GEMINI_API_KEY; // 從環境變數中讀取 API 金鑰
 
             // 發送請求到 Gemini API
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
             const response = await fetch(apiUrl, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
